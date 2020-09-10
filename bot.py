@@ -16,8 +16,8 @@ async def on_ready():
 
 @bot.listen()
 async def on_voice_state_update(member, before, after):
-	global current_channel
-    channel == after.channel
+    global current_channel
+    channel = after.channel
     if channel == None:
         channel = current_channel.guild.get_channel(current_channel.id)
     if channel != None:

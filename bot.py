@@ -16,7 +16,7 @@ async def on_ready():
 
 @bot.listen()
 async def on_voice_state_update(member, before, after):
-    global current_channel
+	global current_channel
     channel = after.channel
     if channel == None:
         channel = current_channel.guild.get_channel(current_channel.id)
@@ -32,7 +32,7 @@ async def on_voice_state_update(member, before, after):
                         memberlist = th[0]
                 if type(memberlist) == discord.role.Role:
                     memberlist == memberlist.members
-                if type(memberlist == discord.member.Member)
+                if type(memberlist) == discord.member.Member:
                     memberlist == [memberlist]
                 for mmr in memberlist:
                     await mmr.send(channel.name)

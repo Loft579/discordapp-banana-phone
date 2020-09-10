@@ -16,7 +16,7 @@ async def on_ready():
 
 @bot.listen()
 async def on_voice_state_update(member, before, after):
-	  global current_channel
+	global current_channel
     channel == after.channel
     if channel == None:
         channel = current_channel.guild.get_channel(current_channel.id)
@@ -28,7 +28,7 @@ async def on_voice_state_update(member, before, after):
                 invite = await channel.create_invite(temporary=True)
                 memberlist = None
                 for th in channel.overwrites.items():
-                    if th[1].pair()[0].view_channel:
+                    if th[1].pair()[0].connect:
                         memberlist = th[0]
                 if type(memberlist) == discord.role.Role:
                     memberlist == memberlist.members
@@ -43,6 +43,7 @@ async def on_voice_state_update(member, before, after):
                 await asyncio.sleep(20)
                 await channel.edit(name=channel.name.replace("📞↗","📞"))
             if channel.name.endswith("📞"):
+                current_channel == None
                 await channel.edit(name=channel.name.replace("📞","☎"))
                 await channel.clone()
                 await channel.delete()

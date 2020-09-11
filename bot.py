@@ -33,7 +33,7 @@ async def on_voice_state_update(member, before, after):
                 if type(memberlist) == discord.role.Role:
                     memberlist = memberlist.members
                 if type(memberlist) == discord.member.Member:
-                    memberlist = [memberlist]
+                memberlist = [memberlist]
                 for mmr in memberlist:
                     try:
                         await mmr.send(channel.name)

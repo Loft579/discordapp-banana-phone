@@ -35,11 +35,12 @@ async def on_voice_state_update(member, before, after):
                 if type(memberlist) == discord.member.Member:
                     memberlist == [memberlist]
                 for mmr in memberlist:
-                    await mmr.send(channel.name)
-                    await mmr.send(invite.url)
-                    await asyncio.sleep(1)
-                    await mmr.send(channel.members[0].name)
-                    await mmr.send(invite.url)
+                    try:
+                        await mmr.send(channel.name)
+                        await mmr.send(invite.url)
+                        await asyncio.sleep(1)
+                        await mmr.send(channel.members[0].name)
+                        await mmr.send(invite.url)
                 await asyncio.sleep(20)
                 await channel.edit(name=channel.name.replace("📞↗","📞"))
             if channel.name.endswith("📞"):

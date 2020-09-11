@@ -28,13 +28,17 @@ async def on_voice_state_update(member, before, after):
                 invite = await channel.create_invite(temporary=True)
                 for rol in member.roles:
                     if "☎" in rol.name:
+                        connected = [] 
+                        for mmr in channel:
+                            connected.append(mmr.id)
                         for mmr in rol.members:
-                            try:
-                                await mmr.send(rol.name)
-                                await mmr.send(invite.url)
-                                await asyncio.sleep(1)
-                                await mmr.send(channel.members[0].name)
-                                await mmr.send(invite.url)
+                            if not mmr.id in connected:
+                                try:
+                                    await mmr.send(rol.name)
+                                    await mmr.send(invite.url)
+                                    await asyncio.sleep(4)
+                                    await mmr.send(channel.members[0].name)
+                                    await mmr.send(invite.url)
                             except:
                                 pass
                 await asyncio.sleep(20)

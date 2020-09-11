@@ -41,6 +41,8 @@ async def on_voice_state_update(member, before, after):
                         await asyncio.sleep(1)
                         await mmr.send(channel.members[0].name)
                         await mmr.send(invite.url)
+                    except:
+                        pass
                 await asyncio.sleep(20)
                 await channel.edit(name=channel.name.replace("📞↗","📞"))
             if channel.name.endswith("📞"):

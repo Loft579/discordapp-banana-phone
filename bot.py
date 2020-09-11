@@ -22,7 +22,7 @@ async def on_voice_state_update(member, before, after):
         channel = current_channel.guild.get_channel(current_channel.id)
     if channel != None:
         if len(channel.members) == 1:
-            if channel.name.endsswith("☎"):
+            if channel.name.endswith("☎"):
                 current_channel = channel
                 await channel.edit(name=channel.name.replace("☎","📞↗"))
                 invite = await channel.create_invite(temporary=True)

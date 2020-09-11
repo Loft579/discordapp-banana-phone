@@ -26,7 +26,7 @@ async def on_voice_state_update(member, before, after):
                 current_channel = channel
                 await channel.edit(name=channel.name.replace("☎","📞↗"))
                 invite = await channel.create_invite(temporary=True)
-                for rol in member.roles():
+                for rol in member.roles:
                     if "☎" in rol.name:
                         for mmr in rol.members:
                             try:

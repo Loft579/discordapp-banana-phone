@@ -8,7 +8,7 @@ import time
 client = discord.Client()
 bot = commands.Bot(command_prefix = ":banana:")
 
-calls == {}
+calls = {}
 
 @bot.listen()
 async def on_ready():

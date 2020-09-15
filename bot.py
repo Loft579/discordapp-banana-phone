@@ -23,7 +23,7 @@ async def on_message(message):
             channel = None
             if not guild_id in calls:
                 for ch in message.guild.text_channels:
-                    if ch.topic.endswith(bot.user.mention):
+                    if str(ch.topic).endswith(bot.user.mention):
                         channel = ch
                 for ch in message.guild.voice_channels:
                     if ch.name.endswith("📞"):
